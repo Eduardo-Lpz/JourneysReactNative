@@ -11,7 +11,8 @@ export default  StyleSheet.create({
     FirstScreen:{
         flex: 1, 
         alignItems: 'center', 
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor:'white'
     },
     button:{
       width:300,
@@ -56,7 +57,11 @@ export default  StyleSheet.create({
     },
 
 
-
+    General:{//reemplaza container y BgColor
+      flex: 1,
+      alignItems: 'center',//centrar horizontalmente
+      backgroundColor: '#c5cae9'
+    },
 
     container: {
       flex: 1,
@@ -68,8 +73,12 @@ export default  StyleSheet.create({
       fontFamily: 'Roboto', 
       fontSize: 30
     },
+    FontHeaders:{
+      fontFamily: 'Roboto', 
+      fontSize: 21
+    },
     BgColor:{
-      backgroundColor: '#c5cae9'//"#bcddf2"
+      backgroundColor: '#e0e0e0'//'#c5cae9'//"#bcddf2"
     },
     icon:{
       //color:'#013e89'
