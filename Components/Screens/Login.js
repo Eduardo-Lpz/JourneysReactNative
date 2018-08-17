@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity, Button, TextInput} from 'react-native';
 import { createStackNavigator } from 'react-navigation';
 import GlobalStyles from '../../GlobalStyles';
-import Principal from '../Screens/Home'
+import Principal from '../Screens/DrawerNavigator'
 
 class Screend extends React.Component {
     constructor(props) {

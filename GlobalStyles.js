@@ -1,7 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 export default  StyleSheet.create({
-    //Global
+
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
     FirstScreen:{
         flex: 1, 
         alignItems: 'center', 
@@ -34,18 +39,30 @@ export default  StyleSheet.create({
       color: '#ffffff',
       fontSize: 18,
     },
-    //ScreenA
     container_ScreenA: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#D33232',
     },
-    //ScreenB
     container_ScreenB: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#4D98EC',
     },
+    container: {
+      flex: 1,
+      alignItems: 'center',
+    },
+    Font:{
+      fontFamily: 'Roboto', 
+      fontSize: 30
+    },
+    BgColor:{
+      backgroundColor: '#c5cae9'
+    },
+    icon:{
+      color : '#01579b'
+    }
   });

@@ -1,17 +1,35 @@
-
-import React from 'react';
-import { View, Text, TouchableWithoutFeedback, Image} from 'react-native';
+import React, { Component } from 'react';
+import { TouchableWithoutFeedback, Image} from 'react-native';
 import { createStackNavigator } from 'react-navigation';
-import LoginOrSignUp from './Components/Screens/LogInOrSignUp'
-import GlobalStyles from './GlobalStyles'
+import { View, Text } from 'native-base';
 
-class HelloScreen extends React.Component {
+
+import GlobalStyles from './GlobalStyles';
+import LoginOrSignUp from './Components/Screens/LogInOrSignUp'
+
+class HelloScreen extends Component {
+  state = {
+    fontLoaded: false,
+  }
+  async componentWillMount() {
+    await Expo.Font.loadAsync({
+      'Roboto': require('native-base/Fonts/Roboto.ttf'),
+      'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+    });
+    this.setState({ fontLoaded: true });
+  }
   render() {
     return (
       <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('Second')}>
         <View style={GlobalStyles.FirstScreen}>
           <Image source={require('./Components/Images/Logo.png')}/>
-          <Text>Journeys</Text>
+          {
+          this.state.fontLoaded ? (
+            <Text style={GlobalStyles.Font}>
+              Journeys
+            </Text>
+          ) : null
+        }
         </View>
       </TouchableWithoutFeedback>
     );
@@ -21,7 +39,7 @@ class HelloScreen extends React.Component {
 const RootStack = createStackNavigator(
   {
     Home: HelloScreen,
-    Second:LoginOrSignUp,
+    Second: LoginOrSignUp
   },
   {
     initialRouteName: 'Home',
@@ -29,9 +47,9 @@ const RootStack = createStackNavigator(
   },
 );
 
-export default class App extends React.Component {
+export default class App extends Component {
   render() {
-    return <RootStack />;
+    return <RootStack/>
   }}
   
  
