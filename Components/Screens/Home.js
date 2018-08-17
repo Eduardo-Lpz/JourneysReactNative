@@ -1,11 +1,15 @@
 import React from 'react';
 import { View, Text, Button, ScrollView, StatusBar, Image, StyleSheet, renderCard, onSwiped,onSwipedAllnpm  } from 'react-native';
 import { createStackNavigator, createDrawerNavigator, TabRouter } from 'react-navigation';
+import {Header, SearchBar,Card, ListItem, Icon, Avatar} from 'react-native-elements'
 import GlobalStyles from '../../GlobalStyles';
 import SignUp from '../Screens/SignUp';
 
+
 class MyHomeScreen extends React.Component {
+
   static navigationOptions = {
+    
     drawerLabel: 'Home',
     drawerIcon: ({ tintColor }) => (
       <Image
@@ -14,10 +18,34 @@ class MyHomeScreen extends React.Component {
       />
     ),
   };
+
   render() {
+
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+
+
+      <View style={{ flex: 1}}>
+<Header
+statusBarProps={{ barStyle: 'light-content' }}
+  leftComponent={{ icon: 'menu', color: '#fff' }}
+  centerComponent={{ text: 'Journeys', style: { color: '#fff', fontSize:25 ,justifyContent: 'center', alignItems: 'center'} }}
+  rightComponent={{ icon: 'home', color: '#fff' }}
+/>
+
+<SearchBar
+  round
+  lightTheme
+  searchIcon={false} // You could have passed `null` too
+  clearIcon={{ color: 'gray' }}
+  searchIcon={{ size: 24 }}
+  cancelButtonTitle="Cancel"
+  cancelIcon={{ type: 'font-awesome', name: 'chevron-left' }}
+  //onChangeText={someMethod}
+  //onClear={someMethod}
+  placeholder='Busca tu destino' />
+
         <Text> Welcome Journeys </Text>
+
 
       </View>
     );
@@ -39,8 +67,23 @@ class MyProfile extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text> HOME PAGE! </Text>
+
+            <View style={{ flex: 1}}>
+<Header
+statusBarProps={{ barStyle: 'light-content' }}
+  leftComponent={{ icon: 'menu', color: '#fff' }}
+  centerComponent={{ text: 'Journeys', style: { color: '#fff', fontSize:25 ,justifyContent: 'center', alignItems: 'center'} }}
+  rightComponent={{ icon: 'home', color: '#fff' }}
+/>
+      <Avatar
+      style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+  size="xxlarge"
+  rounded
+  source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/kfriedson/128.jpg"}}
+  onPress={() => console.log("Works!")}
+  activeOpacity={0.7}
+/>
+        <Text > HOME PAGE! </Text>
         <Button
           onPress={() => this.props.navigation.goBack()}
           title="Go back home"
@@ -84,6 +127,23 @@ const styles = StyleSheet.create({
   icon: {
     width: 24,
     height: 24,
+  },
+  innerContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+  },
+  outerContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: '#fff',
+    borderBottomColor: '#f2f2f2',
+    borderBottomWidth: 1,
+    padding: 15,
+    height: 70,
   },
 });
 
@@ -161,8 +221,10 @@ export default createDrawerNavigator({
   Payment: { screen: MyPaymentMethods, },
   Flights: { screen: MyFlights, },
   LogOut: { screen: LogOutScreen, },
+  
 },
   {
+    headerMode: 'blue',
     drawerPosition: 'left',
     initialRouteName: 'Home',
     drawerBackgroundColor: '#f0f8ff',
