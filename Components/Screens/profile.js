@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
-import { Icon, Content, Container, Header, Button, Left, Right, Body, Text, Thumbnail} from 'native-base';
+import { ScrollView } from 'react-native';
+import { Icon, Content, Container, Header, Button, Left, Right, Body, Text, Thumbnail, View } from 'native-base';
 import GlobalStyles from '../../GlobalStyles';
 
 
@@ -16,26 +16,64 @@ export default class ProfileScreen extends Component {
     return (
       <Container  style={GlobalStyles.BgColor}>
         <Header transparent>
-          <Left>
-            <Button transparent onPress={() => this.props.navigation.openDrawer()}>
-              <Icon type="FontAwesome" name="navicon" style={GlobalStyles.icon}/>
+        <View style={{width:55}}>
+          <Left style={{width:55, justifyContent:'center'}}>
+            <Button transparent onPress={() => this.props.navigation.goBack()} style={{width:55}}>
+              <Icon type="FontAwesome" name="arrow-left" style={GlobalStyles.icon}/>
             </Button>
           </Left>
-          <Body>
-            <Text>Profile</Text>
+          </View>
+          <Body style={{alignItems:'flex-start'}}>
+            <Text style={GlobalStyles.FontHeaders}>Editar Perfil</Text>
           </Body>
-          <Right>
-            <Button transparent>
-              <Icon type="FontAwesome" name="ellipsis-v" style={GlobalStyles.icon}/>
-            </Button>
-          </Right>
         </Header>
-        <Content contentContainerStyle={GlobalStyles.container}>
-        <Thumbnail large source={require('../Images/Bill.gif')} />
-        <Text >
-            Welcome to Profile View
-          </Text>
-        </Content>
+        <ScrollView>
+
+          <View style={GlobalStyles.container}>
+            <Thumbnail large source={require('../Images/profile.jpg')} />
+          </View>
+          <View  style={{height:20}}></View>
+          <View style={{height:40, flex:1, alignItems:'center'}}>
+            <Text >
+              Israel Villalobos
+            </Text>
+          </View>
+
+          <View  style={{height:20, flex:0}}></View>
+
+          <View style={{height:50, flex:1}}>
+            <Button block iconLeft transparent style={{height:50, width:300, alignSelf:'center', justifyContent:'flex-start'}}>
+              <Icon type="MaterialIcons" name="call" style={GlobalStyles.icon} />
+              <Text>664-825-66-37</Text>
+            </Button>
+          </View>
+
+          <View style={{height:50, flex:1}}>
+            <Button block iconLeft transparent style={{height:50, width:300, alignSelf:'center', justifyContent:'flex-start'}}>
+              <Icon type="MaterialIcons" name="email" style={GlobalStyles.icon} />
+              <Text> 	ivillalobos@arkusnexus.com </Text>
+            </Button>
+          </View>
+
+
+          <View  style={{height:100, flex:0}}></View>
+
+
+          <View style={{height:50}}>
+            <Button bordered iconLeft transparen style={{height:50, width:300, alignSelf:'center'}}>
+              <Icon type="FontAwesome" name="credit-card" style={GlobalStyles.icon} />
+              <Text> 	Tus Tarjetas</Text>
+            </Button>
+          </View>
+
+          <View style={{paddingTop:10, height:60}}>
+            <Button bordered iconLeft transparen style={{height:50, width:300, alignSelf:'center'}}>
+              <Icon type="FontAwesome" name="credit-card" style={GlobalStyles.icon} />
+              <Text> 	Tus Facturas</Text>
+            </Button>
+          </View>
+
+        </ScrollView>
       </Container>
     );
   }

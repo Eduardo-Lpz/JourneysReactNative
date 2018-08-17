@@ -6,6 +6,10 @@ import { View, Text } from 'native-base';
 
 import GlobalStyles from './GlobalStyles';
 import LoginOrSignUp from './Components/Screens/LogInOrSignUp'
+import Test from './Components/Screens/DrawerNavigator'
+
+import Test2 from './Components/Screens/DatePickers'
+import DrawerNavigator from './Components/Screens/DrawerNavigator';
 
 class HelloScreen extends Component {
   state = {
@@ -23,13 +27,6 @@ class HelloScreen extends Component {
       <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('Second')}>
         <View style={GlobalStyles.FirstScreen}>
           <Image source={require('./Components/Images/Logo.png')}/>
-          {
-          this.state.fontLoaded ? (
-            <Text style={GlobalStyles.Font}>
-              Journeys
-            </Text>
-          ) : null
-        }
         </View>
       </TouchableWithoutFeedback>
     );
@@ -50,7 +47,7 @@ const RootStack = createStackNavigator(
 export default class App extends Component {
   render() {
     return <RootStack/>
-  }}//comentario test
+  }}
   
  
  

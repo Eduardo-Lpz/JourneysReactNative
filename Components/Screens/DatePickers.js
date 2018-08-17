@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Header, Content, DatePicker, Text, View, Button } from 'native-base';
+
 export default class DatePickerExample extends Component {
   constructor(props) {
     super(props);
@@ -11,10 +12,10 @@ export default class DatePickerExample extends Component {
   }
   render() {
     return (
-      <Container style={{backgroundColor:'black'}}>
-          <View style={{width:400, height:200, justifyContent:'center', backgroundColor:'white'}} >
-          <Content padder style={{ backgroundColor: "blue" }}>
-          <Button style={{width:200, height:150, justifyContent:'center'}}>
+
+          <View>
+
+          <Button style={{width:180, height:60, justifyContent:'center'}}>
           <DatePicker style={{width:200, height:150}} itemStyle={{height: 150}}
             defaultDate={new Date(2018, 4, 4)}
             minimumDate={new Date(2018, 1, 1)}
@@ -25,18 +26,14 @@ export default class DatePickerExample extends Component {
             animationType={"fade"}
             androidMode={"default"}
             placeHolderText="Seleccionar Fecha"
-            textStyle={{ color: "green" }}
+            textStyle={{ color: "black" }}
             placeHolderTextStyle={{ color: "#d3d3d3" }}
             onDateChange={this.setDate}
             />
             </Button>
-            </Content>
+            
             </View>
-            <Text>
-              Date: {this.state.chosenDate.toString().substr(4, 12)}
-            </Text>
-       
-      </Container>
+
     );
   }
 }

@@ -7,10 +7,12 @@ export default  StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
+    //Global
     FirstScreen:{
         flex: 1, 
         alignItems: 'center', 
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor:'white'
     },
     button:{
       width:300,
@@ -39,30 +41,53 @@ export default  StyleSheet.create({
       color: '#ffffff',
       fontSize: 18,
     },
+    //ScreenA
     container_ScreenA: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#D33232',
     },
+    //ScreenB
     container_ScreenB: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
       backgroundColor: '#4D98EC',
     },
+
+
+    General:{//reemplaza container y BgColor
+      flex: 1,
+      alignItems: 'center',//centrar horizontalmente
+      backgroundColor: '#c5cae9'
+    },
+
     container: {
       flex: 1,
-      alignItems: 'center',
+      //justifyContent: 'center',//centrar verticalmente
+      alignItems: 'center',//centrar horizontalmente
+      //backgroundColor: '#F5FCFF',
     },
     Font:{
       fontFamily: 'Roboto', 
       fontSize: 30
     },
+    FontHeaders:{
+      fontFamily: 'Roboto', 
+      fontSize: 21
+    },
     BgColor:{
-      backgroundColor: '#c5cae9'
+      backgroundColor: '#e0e0e0'//'#c5cae9'//"#bcddf2"
     },
     icon:{
-      color : '#01579b'
+      //color:'#013e89'
+      color : '#01579b'//light-blue darken-4
     }
   });
+
+  /*
+      icon: {
+      width: 24,
+      height: 24,
+    } */

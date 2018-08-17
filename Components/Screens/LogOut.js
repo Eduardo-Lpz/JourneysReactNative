@@ -8,7 +8,7 @@ export default class LogOutScreen extends Component {
     static navigationOptions = {
       drawerLabel: 'cerrar Sesion',
       drawerIcon: () => (
-        <Icon type="FontAwesome" name="optin-monster" style={GlobalStyles.icon}/>
+        <Icon type="Entypo" name="log-out" style={GlobalStyles.icon}/>
       )
     };
     render() {
