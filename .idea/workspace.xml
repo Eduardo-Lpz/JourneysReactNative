@@ -2,24 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="47a1cfd1-f355-4fca-b86d-a05ad43f757c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/App.js" afterPath="$PROJECT_DIR$/App.js" />
-      <change beforePath="$PROJECT_DIR$/Components/Container/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Components/Drawer/drawer-toolbar-android.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Components/Drawer/drawer-toolbar-ios.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Components/Drawer/index.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Components/Pages/bookmark.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Components/Pages/calendar.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Components/Pages/client.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Components/Pages/info.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Components/Pages/people.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Components/Pages/setting.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Components/Screens/BookFlights.js" afterPath="$PROJECT_DIR$/Components/Screens/BookFlights.js" />
+      <change beforePath="$PROJECT_DIR$/Components/Screens/DrawerNavigator.js" afterPath="$PROJECT_DIR$/Components/Screens/DrawerNavigator.js" />
       <change beforePath="$PROJECT_DIR$/Components/Screens/Home.js" afterPath="$PROJECT_DIR$/Components/Screens/Home.js" />
-      <change beforePath="$PROJECT_DIR$/Components/Screens/Test.js" afterPath="$PROJECT_DIR$/Components/Screens/Test.js" />
+      <change beforePath="$PROJECT_DIR$/Components/Screens/Test2.js" afterPath="$PROJECT_DIR$/Components/Screens/Test2.js" />
       <change beforePath="$PROJECT_DIR$/Components/Screens/profile.js" afterPath="$PROJECT_DIR$/Components/Screens/profile.js" />
       <change beforePath="$PROJECT_DIR$/GlobalStyles.js" afterPath="$PROJECT_DIR$/GlobalStyles.js" />
-      <change beforePath="$PROJECT_DIR$/JourneysReactNative" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change beforePath="$PROJECT_DIR$/native-base-theme/components/Card.js" afterPath="$PROJECT_DIR$/native-base-theme/components/Card.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />

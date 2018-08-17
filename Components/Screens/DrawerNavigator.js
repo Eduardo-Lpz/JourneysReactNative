@@ -9,14 +9,14 @@ import LogOut  from './LogOut'
 export default createDrawerNavigator({
   Home: { screen: HomeScreen },
   Flights: { screen: BookFlights },
-  Test: { screen: Test },
+  //Test: { screen: Test },
   Profile: { screen: Profile },
   LogOut: { screen: LogOut },
 },
   {
     drawerPosition: 'left',
     initialRouteName: 'Home',
-    drawerBackgroundColor: 'white',
+    drawerBackgroundColor: '#f5f5f5',
     drawerWidth: 300
   });
   
