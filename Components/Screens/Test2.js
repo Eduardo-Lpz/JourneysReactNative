@@ -12,11 +12,10 @@ export default class FetchExample extends React.Component {
   }
 
   componentDidMount(){
-    return fetch('http://172.20.19.214:3001/api/journeys/Apts/')
-      .then((response) => response.json())//JSON.parse(response))//response.json())
+    return fetch('http://172.20.19.17:3001/api/journeys/Apts/')
+      .then((response) => response.json())
       .then(data=>{
         this.setState({Vuelos:data});
-        //console.log(this.state.Vuelos)
         })
       .catch((error) =>{
         console.error(error);
