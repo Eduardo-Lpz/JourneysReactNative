@@ -10,6 +10,9 @@ import DatePickers from './DatePickers'
 
 
 export default class FlightsScreen extends Component {
+      constructor(props){
+        super(props);
+    }
     static navigationOptions = {
       drawerLabel: 'Reservar Vuelos',
       drawerIcon: () => (
@@ -34,8 +37,8 @@ export default class FlightsScreen extends Component {
           <ScrollView>
 
           <View  style={{height:150, flex:0, flexDirection: "row", justifyContent: 'space-between'}}>
-          <ActionSheetFlights/>
-          <ActionSheetFlights/>
+          <ActionSheetFlights EsOrigen={true} nombreMostrar='Origen'/>
+          <ActionSheetFlights nombreMostrar='Destino'/>
           </View>
 
           <View  style={{height:20, flex:0}}>

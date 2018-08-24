@@ -1,42 +1,39 @@
-import React, { Component } from 'react';
-import { Container, Header, Content, DatePicker, Text, View, Button } from 'native-base';
-export default class DatePickerExample extends Component {
-  constructor(props) {
+import React from 'react';
+import { Container, Header, Content, List, ListItem  } from 'native-base';
+import { FlatList , Text, View } from 'react-native';
+
+export default class FetchExample extends React.Component {
+
+  constructor(props){
     super(props);
-    this.state = { chosenDate: new Date() };
-    this.setDate = this.setDate.bind(this);
+    this.state= {
+      Vuelos:[]
+    };
   }
-  setDate(newDate) {
-    this.setState({ chosenDate: newDate });
+
+  componentDidMount(){
+    return fetch('http://172.20.19.214:3001/api/journeys/Apts/')
+      .then((response) => response.json())//JSON.parse(response))//response.json())
+      .then(data=>{
+        this.setState({Vuelos:data});
+        //console.log(this.state.Vuelos)
+        })
+      .catch((error) =>{
+        console.error(error);
+      });
   }
-  render() {
-    return (
-      <Container style={{backgroundColor:'black'}}>
-          <View style={{width:400, height:200, justifyContent:'center', backgroundColor:'white'}} >
-          <Content padder style={{ backgroundColor: "blue" }}>
-          <Button style={{width:200, height:150, justifyContent:'center'}}>
-          <DatePicker style={{width:200, height:150}} itemStyle={{height: 150}}
-            defaultDate={new Date(2018, 4, 4)}
-            minimumDate={new Date(2018, 1, 1)}
-            maximumDate={new Date(2018, 12, 31)}
-            locale={"en"}
-            timeZoneOffsetInMinutes={undefined}
-            modalTransparent={false}
-            animationType={"fade"}
-            androidMode={"default"}
-            placeHolderText="Seleccionar Fecha"
-            textStyle={{ color: "green" }}
-            placeHolderTextStyle={{ color: "#d3d3d3" }}
-            onDateChange={this.setDate}
-            />
-            </Button>
-            </Content>
-            </View>
-            <Text>
-              Date: {this.state.chosenDate.toString().substr(4, 12)}
-            </Text>
-       
-      </Container>
+
+
+
+  render(){
+    return(
+      <View style={{flex: 1, paddingTop:20}}>
+        <FlatList
+          data={this.state.Vuelos}
+          renderItem={({item}) => <Text>{item.Ap_Country}  -  {item.Ap_State}  - {item.Ap_City}</Text>}
+          keyExtractor={(item, index) => index.toString()}
+        />
+      </View>
     );
   }
 }

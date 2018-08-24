@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import { Container, Header, Button, Content, ActionSheet, Text, View, Root} from "native-base";
+import { Container, Header, Button, Content, ActionSheet, Text, View, Root, List, ListItem, Toast} from "native-base";
 var BUTTONS = [
   { text: "Acapulco(ACA)", icon: "american-football", iconColor: "#2c8ef4" },
   { text: "Aguascalientes(AGU)", icon: "analytics", iconColor: "#f42ced" },
@@ -14,8 +14,24 @@ var CANCEL_INDEX = 4;
 export default class ActionSheetIconExample extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      NombreParaMostrar:this.props.nombreMostrar,
+      Aeropuertos: []
+    };
   }
+  componentDidMount(){
+    return fetch('http://172.20.19.214:3001/api/journeys/Apts/')
+      .then((response) => response.json())
+      .then(data=>{
+       data.forEach((element) => {
+         this.state.Aeropuertos.push("("+element.Ap_Code+")" + " "+element.Ap_City);
+       });
+        })
+      .catch((error) =>{
+        console.error(error);
+      });
+  }
+
   render() {
     return (
       <View >
@@ -24,17 +40,17 @@ export default class ActionSheetIconExample extends Component {
             onPress={() =>
             ActionSheet.show(
               {
-                options: BUTTONS,
+                options: this.state.Aeropuertos,
                 cancelButtonIndex: CANCEL_INDEX,
                 destructiveButtonIndex: DESTRUCTIVE_INDEX,
                 title: "Aeropuerto"
               },
-              buttonIndex => {
-                this.setState({ clicked: BUTTONS[buttonIndex] });
+              ArrayIndex => {
+                this.setState({NombreParaMostrar:this.state.Aeropuertos[ArrayIndex]})
               }
             )}
           >
-            <Text >Aeropuerto</Text>
+            <Text >{this.state.NombreParaMostrar}</Text>
           </Button>
           </Root>
       </View>

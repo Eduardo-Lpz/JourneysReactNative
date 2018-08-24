@@ -36,7 +36,7 @@ class HelloScreen extends Component {
 const RootStack = createStackNavigator(
   {
     Home: HelloScreen,
-    Second: LoginOrSignUp
+    Second: Test
   },
   {
     initialRouteName: 'Home',
