@@ -5,6 +5,18 @@ import GlobalStyles from '../../GlobalStyles';
 
 
 export default class ProfileScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email:'',
+      password:'',
+      errors:'',
+      showProgress: false,
+      Users:[],
+      
+    };
+  }
+  
   static navigationOptions = {
     drawerLabel: 'Perfil',
     drawerIcon: () => (

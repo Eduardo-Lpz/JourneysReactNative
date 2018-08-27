@@ -116,8 +116,8 @@ class SignUp extends React.Component {
   
     render() {
       return (
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>REGISTER</Text>
+        <View style={GlobalStyles.containerLogin}>
+        <Text style={GlobalStyles.text}>REGISTER</Text>
         <TextInput style={GlobalStyles.inputBox} underlineColorAndroid='rgba(0,0,0,0)'
           placeholder="First Name"
           maxLength = {80}

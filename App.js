@@ -26,7 +26,7 @@ class HelloScreen extends Component {
     return (
       <TouchableWithoutFeedback onPress={() => this.props.navigation.navigate('Second')}>
         <View style={GlobalStyles.FirstScreen}>
-          <Image source={require('./Components/Images/Logo.png')}/>
+          <Image style={GlobalStyles.imgmediana}source={require('./Components/Images/logosinfondo.png')}/>
         </View>
       </TouchableWithoutFeedback>
     );

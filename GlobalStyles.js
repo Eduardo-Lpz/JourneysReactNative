@@ -12,11 +12,11 @@ export default  StyleSheet.create({
         flex: 1, 
         alignItems: 'center', 
         justifyContent: 'center',
-        backgroundColor:'white'
+        backgroundColor:'#0052cc'
     },
     button:{
       width:300,
-      backgroundColor:'#0000ff',
+      backgroundColor:'#3385ff',
       borderRadius:25,
       marginVertical:10,
       paddingVertical:12
@@ -29,13 +29,20 @@ export default  StyleSheet.create({
   },
   inputBox:{
     width:300,
-    backgroundColor:'rgba(255,255,255,0.5)',
+    height:45,
+    backgroundColor:'rgb(230, 240, 255)',
     borderRadius: 25,
     paddingHorizontal:16,
     color:'#000000',
     marginVertical:10,
     fontSize:16
 },
+
+    error:{
+      textAlign: 'center',
+      color: '#ff0000',
+      fontSize: 15,
+    },
     text:{
       textAlign: 'center',
       color: '#ffffff',
@@ -57,12 +64,10 @@ export default  StyleSheet.create({
     },
 
     containerLogin: {
-      flex: 1,
-      justifyContent: 'flex-start',
-      alignItems: 'center',
-      backgroundColor: '#F5FCFF',
-      padding: 10,
-      paddingTop: 80
+        backgroundColor: '#0052cc',
+        flexGrow: 1,
+        justifyContent:'center',
+        alignItems: 'center'
     },
 
     General:{//reemplaza container y BgColor
@@ -91,8 +96,25 @@ export default  StyleSheet.create({
     icon:{
       //color:'#013e89'
       color : '#01579b'//light-blue darken-4
-    }
+    },
+
+    imgpequena:{
+      width: 50, height: 50,
+      },
+      imgmediana:{
+        borderWidth:0,
+        borderTopLeftRadius: 0,
+        borderColor:'#0052cc', 
+        borderRadius:0,
+        marginVertical:0,
+      width: 175, height: 175,
+      },
+      imggrande:{
+      width: 200, height: 200,
+      },
+
   });
+
 
   /*
       icon: {

@@ -72,8 +72,8 @@ fetchUsers(){
     render() {
         return (
             <View style={GlobalStyles.containerLogin}>
-                <Image source={require('../Images/LogoPhrase.png')}/>
-                <Text>Log In to your account!</Text>
+                <Image style={GlobalStyles.imgmediana} source={require('../Images/logosinfondo.png')}/>
+                <Text style={GlobalStyles.text}>Log In to your account!</Text>
                 <TextInput style={GlobalStyles.inputBox} underlineColorAndroid='rgba(0,0,0,0)'
           keyboardType= "email-address"
           placeholder="Email"
@@ -96,7 +96,7 @@ fetchUsers(){
       >
       <Text style={GlobalStyles.buttonText}>Log In</Text>
       </TouchableOpacity>
-      <Text>
+      <Text style={GlobalStyles.error}>
         {this.state.errors}
       </Text>
             </View>
