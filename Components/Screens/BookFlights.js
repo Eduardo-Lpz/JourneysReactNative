@@ -10,12 +10,15 @@ import DatePickers from './DatePickers'
 
 
 export default class FlightsScreen extends Component {
+
     static navigationOptions = {
       drawerLabel: 'Reservar Vuelos',
       drawerIcon: () => (
         <Icon type="FontAwesome" name="plane" style={GlobalStyles.icon}/>
       )
     };
+
+
     render() {
       return (
         <Container  style={GlobalStyles.BgColor}>

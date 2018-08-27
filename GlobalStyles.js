@@ -56,6 +56,14 @@ export default  StyleSheet.create({
       backgroundColor: '#4D98EC',
     },
 
+    containerLogin: {
+      flex: 1,
+      justifyContent: 'flex-start',
+      alignItems: 'center',
+      backgroundColor: '#F5FCFF',
+      padding: 10,
+      paddingTop: 80
+    },
 
     General:{//reemplaza container y BgColor
       flex: 1,

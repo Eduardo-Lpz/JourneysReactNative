@@ -14,6 +14,36 @@ import {
 import GlobalStyles from '../../GlobalStyles';
 
 class SignUp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      text: '',
+      first_name:'',
+      last_name:'',
+      email:'',
+      password:'',
+      phone:'',
+      role:'user',
+      password_confirmation:'',
+      Users:[],
+      errors:[],  
+     };
+  }
+
+  componentDidMount(){
+    this.fetchUsers();
+}
+
+  fetchUsers(){
+    //fetch('http://172.20.19.62:3001/api/journeys/User/') arkus
+    fetch('http://192.168.1.75:3001/api/journeys/User/') 
+        .then(res=>res.json())
+        .then(data=>{
+            this.setState({Users:data});
+            console.log(data);
+            console.log(this.state.Users);
+        });
+  }
 
     static navigationOptions ={
       title: 'Sign Up',
@@ -25,25 +55,76 @@ class SignUp extends React.Component {
         fontWeight: 'bold',
       },
     };
-    constructor(props) {
-      super(props);
-      this.state = { text: '' };
+
+    AddUser(e){
+        
+      fetch('http://192.168.1.75:3001/api/journeys/User/',{
+          method: 'POST',
+          body: JSON.stringify(this.state),
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+          }
+      })
+      .then(res=> res.json())
+      .then(data => {
+          //window.Materialize.toast("User Agregado",900,"light-blue darken-3")
+          this.setState({
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            email: this.state.email,
+            role: this.state.role,
+            phone: this.state.phone,
+            password: this.state.password,
+          });
+          this.fetchUsers();
+      })
+      .catch(err=> console.error(err));
+      e.preventDefault();
+
+
+  }
+
+    async onRegisterPressed(){
+      try{
+        let response = await fetch('http://172.20.19.62:3001/api/journeys/User/', {
+          method: 'POST',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              user:{
+                first_name: this.state.first_name,
+                last_name: this.state.last_name,
+                email: this.state.email,
+                role: this.state.role,
+                phone: this.state.phone,
+                password: this.state.password,
+              }
+            })   
+            });
+
+            let res = await response.text();
+            console.log("res is: "+ res)
+
+          } catch(errors){
+    
+      }
     }
+
   
     render() {
       return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>REGISTER</Text>
         <TextInput style={GlobalStyles.inputBox} underlineColorAndroid='rgba(0,0,0,0)'
-          keyboardType= "Name"
           placeholder="First Name"
-          //caretHidden = {true}
           maxLength = {80}
-          //clearTextOnFocus = {true}
           placeholderTextColor='#000000'
           selectionColor="#000"
           secureTextEntry = {false}
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={(val) => this.setState({first_name: val})}
         />
    <TextInput style={GlobalStyles.inputBox} underlineColorAndroid='rgba(0,0,0,0)'
           //keyboardType={email-address}
@@ -52,8 +133,8 @@ class SignUp extends React.Component {
           placeholderTextColor='#000000'
           selectionColor="#000"
           secureTextEntry = {false}
-          onChangeText={(text) => this.setState({text})}
-        />
+          onChangeText={(val) => this.setState({last_name: val})}
+        ></TextInput>
    <TextInput style={GlobalStyles.inputBox} underlineColorAndroid='rgba(0,0,0,0)'
           keyboardType= "email-address"
           maxLength = {40}
@@ -61,7 +142,7 @@ class SignUp extends React.Component {
           placeholderTextColor='#000000'
           selectionColor="#000"
           secureTextEntry = {false}
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={(val) => this.setState({email: val})}
         />
    <TextInput style={GlobalStyles.inputBox} underlineColorAndroid='rgba(0,0,0,0)'
           keyboardType= "phone-pad"
@@ -70,29 +151,27 @@ class SignUp extends React.Component {
           placeholderTextColor='#000000'
           selectionColor="#000"
           secureTextEntry = {false}
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={(val) => this.setState({phone: val})}
         />
    <TextInput style={GlobalStyles.inputBox} underlineColorAndroid='rgba(0,0,0,0)'
-          //keyboardType={email-address}
           maxLength = {40}
           placeholder="Password"
           placeholderTextColor='#000000'
           selectionColor="#000"
           secureTextEntry = {true}
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={(val) => this.setState({password: val})}
         />
    <TextInput style={GlobalStyles.inputBox} underlineColorAndroid='rgba(0,0,0,0)'
-          //keyboardType={email-address}
           maxLength = {40}
           placeholder="Password Confirm"
           placeholderTextColor='#000000'
           selectionColor="#000"
           secureTextEntry = {true}
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={(val) => this.setState({password_confirmation: val})}
         />
   <TouchableOpacity style={GlobalStyles.button}
         //onPress = {()=> this.props.navigation.navigate('Segunda')}
-        >
+        onPress = {this.AddUser.bind(this)}>
         <Text style={GlobalStyles.buttonText}>Sign Up</Text>
         </TouchableOpacity>
   
