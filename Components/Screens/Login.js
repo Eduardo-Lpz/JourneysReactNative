@@ -5,7 +5,7 @@ import { createStackNavigator } from 'react-navigation';
 import GlobalStyles from '../../GlobalStyles';
 import Principal from '../Screens/DrawerNavigator'
 
-const ACCESS_TOKEN = 'access_token';
+const ACCESS_TOKEN = 'myId';
 
 class Screend extends React.Component {
     constructor(props) {
@@ -14,26 +14,49 @@ class Screend extends React.Component {
           email:'',
           password:'',
           errors:'',
+          _id:'',
           showProgress: false,
           Users:[],
           
         };
       }
 
-      
-  componentDidMount(){
-    this.fetchUsers();
+  _storeData = async (myId) => {
+        try {
+          console.log(myId);
+          await AsyncStorage.setItem(ACCESS_TOKEN, myId);
+          //this.gettoken();
+        } catch (error) {
+          // Error saving data
+        }
+      }
+/*
+      async gettoken(){ 
+        console.log("hi");
+        try {
+          let value = await AsyncStorage.getItem(ACCESS_TOKEN);
+            this.setState({_id:value});
+            // We have data!!
+            console.log("hola");
+            console.log(value);
+            console.log(this.state._id)
+          }
+          catch (error) {
+            console.log("error:"+error);
+           // Error retrieving data
+         }
+      }*/
+
+componentDidMount(){
+  this.fetchUsers();
 }
 
-
 fetchUsers(){
-  //fetch('http://172.20.19.62:3001/api/journeys/User/') arkus
-  fetch('http://192.168.1.75:3001/api/journeys/User/') 
+  fetch('http://172.20.19.83:3001/api/journeys/User/')
+  //fetch('http://10.0.1.85:3001/api/journeys/User/') 
       .then(res=>res.json())
       .then(data=>{
           this.setState({Users:data});
-          console.log(data);
-          console.log(this.state.Users);
       });
 }
 
@@ -51,11 +74,16 @@ fetchUsers(){
       }
 
       LoginPress(){
-        var id=""
+        this.setState({showProgress: true});
+        this.fetchUsers();
+        let id ="";
           this.state.Users.forEach(element => {
               if(element["email"]==this.state.email){
                   if(element["password"]==this.state.password){
                     console.log(element);
+                    id=element["_id"];
+                    this._storeData(id);
+                    console.log(id);
                     this.props.navigation.navigate('Second');
                   }
                   else{
@@ -93,6 +121,7 @@ fetchUsers(){
         />     
                 <TouchableOpacity style={GlobalStyles.button}
      onPress={this.LoginPress.bind(this)}
+     //onPress = {()=> this.props.navigation.navigate('Second')}
       >
       <Text style={GlobalStyles.buttonText}>Log In</Text>
       </TouchableOpacity>

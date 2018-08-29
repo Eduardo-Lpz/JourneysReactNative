@@ -44,7 +44,7 @@ export default class HomeScreen extends Component {
       return (
         <Container  style={GlobalStyles.BgColor}>
 
-          <Header transparent style={{justifyContent:'flex-start'}}>
+          <Header transparent style={GlobalStyles.heather}>
 
           <View style={{width:55}}>
             <Left style={{width:55, justifyContent:'center'}}>

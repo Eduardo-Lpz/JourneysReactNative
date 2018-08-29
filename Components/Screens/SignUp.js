@@ -35,8 +35,8 @@ class SignUp extends React.Component {
 }
 
   fetchUsers(){
-    //fetch('http://172.20.19.62:3001/api/journeys/User/') arkus
-    fetch('http://192.168.1.75:3001/api/journeys/User/') 
+    fetch('http://172.20.19.83:3001/api/journeys/User/')
+    //fetch('http://192.168.1.75:3001/api/journeys/User/') 
         .then(res=>res.json())
         .then(data=>{
             this.setState({Users:data});
@@ -85,33 +85,6 @@ class SignUp extends React.Component {
 
   }
 
-    async onRegisterPressed(){
-      try{
-        let response = await fetch('http://172.20.19.62:3001/api/journeys/User/', {
-          method: 'POST',
-          headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              user:{
-                first_name: this.state.first_name,
-                last_name: this.state.last_name,
-                email: this.state.email,
-                role: this.state.role,
-                phone: this.state.phone,
-                password: this.state.password,
-              }
-            })   
-            });
-
-            let res = await response.text();
-            console.log("res is: "+ res)
-
-          } catch(errors){
-    
-      }
-    }
 
   
     render() {

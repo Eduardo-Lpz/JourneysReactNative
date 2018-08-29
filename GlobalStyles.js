@@ -7,19 +7,34 @@ export default  StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
+
+  heather:{
+    justifyContent:'flex-start',
+    backgroundColor:'#0277bd',
+
+  },
+
+  modal:{
+    flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#D33232',
+  },
     //Global
     FirstScreen:{
         flex: 1, 
         alignItems: 'center', 
         justifyContent: 'center',
-        backgroundColor:'#0052cc'
+        backgroundColor:'#0277bd'
     },
     button:{
       width:300,
       backgroundColor:'#3385ff',
       borderRadius:25,
       marginVertical:10,
-      paddingVertical:12
+      paddingVertical:12,
+      alignItems:'center'
+
   },
   buttonText:{
       fontSize:16,
@@ -64,7 +79,7 @@ export default  StyleSheet.create({
     },
 
     containerLogin: {
-        backgroundColor: '#0052cc',
+        backgroundColor: '#0277bd',
         flexGrow: 1,
         justifyContent:'center',
         alignItems: 'center'
@@ -88,7 +103,8 @@ export default  StyleSheet.create({
     },
     FontHeaders:{
       fontFamily: 'Roboto', 
-      fontSize: 21
+      fontSize: 21,
+      color:'#ffffff',
     },
     BgColor:{
       backgroundColor: '#e0e0e0'//'#c5cae9'//"#bcddf2"
@@ -98,13 +114,17 @@ export default  StyleSheet.create({
       color : '#01579b'//light-blue darken-4
     },
 
+    loader: {
+      marginTop: 20
+    },
+
     imgpequena:{
       width: 50, height: 50,
       },
       imgmediana:{
         borderWidth:0,
         borderTopLeftRadius: 0,
-        borderColor:'#0052cc', 
+        borderColor:'#0277bd', 
         borderRadius:0,
         marginVertical:0,
       width: 175, height: 175,

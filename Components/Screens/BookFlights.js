@@ -22,7 +22,7 @@ export default class FlightsScreen extends Component {
     render() {
       return (
         <Container  style={GlobalStyles.BgColor}>
-        <Header transparent>
+        <Header transparent style={GlobalStyles.heather}>
         <View style={{width:55}}>
           <Left style={{width:55, justifyContent:'center'}}>
             <Button transparent onPress={() => this.props.navigation.goBack()} style={{width:55}}>
