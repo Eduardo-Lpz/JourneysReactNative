@@ -5,6 +5,8 @@ import Profile from './Profile'
 import BookFlights from './BookFlights'
 import Test from './Test2'
 import LogOut  from './LogOut'
+import MisVuelos from './MisVuelos'
+
 
 export default createDrawerNavigator({
   Home: { screen: HomeScreen },
@@ -12,6 +14,8 @@ export default createDrawerNavigator({
   //Test: { screen: Test },
   Profile: { screen: Profile },
   LogOut: { screen: LogOut },
+  MisVuelos: {screen: MisVuelos},
+
 },
   {
     drawerPosition: 'left',

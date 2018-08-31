@@ -6,11 +6,12 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+
 import {
     createStackNavigator,
     createBottomTabNavigator
   } from 'react-navigation';
-//import Principal from '../Screens/LogInOrSignUp';
+import Principal from '../Screens/Login';
 import GlobalStyles from '../../GlobalStyles';
 
 class SignUp extends React.Component {
@@ -35,8 +36,7 @@ class SignUp extends React.Component {
 }
 
   fetchUsers(){
-    fetch('http://172.20.19.83:3001/api/journeys/User/')
-    //fetch('http://192.168.1.75:3001/api/journeys/User/') 
+    fetch('http://192.168.1.75:3001/api/journeys/User/')
         .then(res=>res.json())
         .then(data=>{
             this.setState({Users:data});
@@ -78,6 +78,7 @@ class SignUp extends React.Component {
             password: this.state.password,
           });
           this.fetchUsers();
+          //this.props.navigation.goBack();
       })
       .catch(err=> console.error(err));
       e.preventDefault();

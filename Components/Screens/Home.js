@@ -1,7 +1,8 @@
 import React, { Component }from 'react';
 import { Image, ScrollView } from 'react-native';
-import { View, Icon, Container, Header, Button, Left, Right, Body, Text, DeckSwiper, Card, CardItem,AsyncStorage,
-  AlertIOS, ActivityIndicatorIOS, } from 'native-base';
+import { View, Icon, Container, Header, Button, 
+  Left, Right, Body, Text, DeckSwiper, Card, CardItem,AsyncStorage,
+  AlertIOS, ActivityIndicator,} from 'native-base';
 
 import GlobalStyles from '../../GlobalStyles';
 
@@ -59,6 +60,7 @@ export default class HomeScreen extends Component {
           <ScrollView>
 
           <View style={{height:260, flex:0}}>
+          
             <DeckSwiper 
               dataSource={cards}
               renderItem={item =>

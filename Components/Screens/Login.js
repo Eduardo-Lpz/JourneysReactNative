@@ -30,30 +30,14 @@ class Screend extends React.Component {
           // Error saving data
         }
       }
-/*
-      async gettoken(){ 
-        console.log("hi");
-        try {
-          let value = await AsyncStorage.getItem(ACCESS_TOKEN);
-            this.setState({_id:value});
-            // We have data!!
-            console.log("hola");
-            console.log(value);
-            console.log(this.state._id)
-          }
-          catch (error) {
-            console.log("error:"+error);
-           // Error retrieving data
-         }
-      }*/
+
 
 componentDidMount(){
   this.fetchUsers();
 }
 
 fetchUsers(){
-  fetch('http://172.20.19.83:3001/api/journeys/User/')
-  //fetch('http://10.0.1.85:3001/api/journeys/User/') 
+  fetch('http://192.168.1.75:3001/api/journeys/User/')
       .then(res=>res.json())
       .then(data=>{
           this.setState({Users:data});
@@ -79,11 +63,9 @@ fetchUsers(){
         let id ="";
           this.state.Users.forEach(element => {
               if(element["email"]==this.state.email){
-                  if(element["password"]==this.state.password){
-                    console.log(element);
+                  if(element["password"]==this.state.password){;
                     id=element["_id"];
                     this._storeData(id);
-                    console.log(id);
                     this.props.navigation.navigate('Second');
                   }
                   else{
