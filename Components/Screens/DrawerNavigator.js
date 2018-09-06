@@ -5,7 +5,7 @@ import Profile from './profile'
 import BookFlights from './BookFlights'
 import Test from './Test2'
 import LogOut  from './LogOut'
-import Cards from './RegistroPasajero'
+import Cards from './Confirmation'
 
 export default createDrawerNavigator({
   Home: { screen: HomeScreen },
