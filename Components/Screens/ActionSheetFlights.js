@@ -1,5 +1,7 @@
 
 import React, { Component } from "react";
+import { createStackNavigator } from 'react-navigation';
+import { ScrollView, AsyncStorage } from 'react-native';
 import { Container, Header, Button, Content, ActionSheet, Text, View, Root} from "native-base";
 var BUTTONS = [
   { text: "Acapulco(ACA)", icon: "american-football", iconColor: "#2c8ef4" },
@@ -10,6 +12,7 @@ var BUTTONS = [
 ];
 var DESTRUCTIVE_INDEX = 3;
 var CANCEL_INDEX = 4;
+const DESTINO_VUELO = 'myDestino';
 
 export default class ActionSheetIconExample extends Component {
   constructor(props){
@@ -25,9 +28,20 @@ export default class ActionSheetIconExample extends Component {
         Precio:'',
         Vuelos:[],
         offset: 0,
-        searchTerm:''
+        searchTerm:'',
+        myDestino:''
     };
 
+}
+
+_storeData = async (myDestino) => {
+  try {
+    console.log(myDestino);
+    await AsyncStorage.setItem(DESTINO_VUELO, myDestino);
+    //this.gettoken();
+  } catch (error) {
+    // Error saving data
+  }
 }
 
   

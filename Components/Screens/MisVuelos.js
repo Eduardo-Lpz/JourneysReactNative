@@ -7,29 +7,34 @@ import GlobalStyles from '../../GlobalStyles';
 const ACCESS_TOKEN = 'myId';
 
 const dataArray = [
-    { title: "First Element", content: "Lorem ipsum dolor sit amet" },
-    { title: "Second Element", content: "Lorem ipsum dolor sit amet" },
-    { title: "Third Element", content: "Lorem ipsum dolor sit amet" }
+    { title: "17/SEP/2018             CUN", content: "Lorem ipsum dolor sit amet" },
+    { title: "24/DIC/2018             MEX", content: "Lorem ipsum dolor sit amet" },
+    { title: "08/ENE/2019             LAP", content: "Lorem ipsum dolor sit amet" }
   ];
 
 export default class ProfileScreen extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        email:'',
-        password:'',
-        first_name:'',
-        last_name:'',
-        phone:'',
         _id:'',
+        vueloId:'',
+        userId:'',
         myId:'',
+        my_Origen:'',
+        my_Destino:'',
+        my_Fecha_Llegada:'',
+        my_Hora_Llegada:'',
+        my_Fecha_Salida:'',
+        my_Hora_Salida:'',
+        seat:'',
         errors:'',
         showProgress: false,
         modalVisible: false,
-        Users:[]
-        
+        MisVuelos:[],
+        Vuelo:{},
+        Array:[],
       };
-      this.updateUser = this.updateUser.bind(this);
+      this.getMyFlights = this.getMyFlights.bind(this);
       //this.validapassword = this.validapassword.bind(this);
     }
   
@@ -39,65 +44,74 @@ export default class ProfileScreen extends Component {
         <Icon type="FontAwesome" name="plane" style={GlobalStyles.icon}/>
       )
     };
-  
-    updateUser(){
-      console.log(this.state._id);
-      this.state.Users.forEach(element => {
-        console.log("foreach");
-        if(element["_id"]==this.state._id){
-          this.setState({
-            first_name:element["first_name"]});
-          this.setState({
-            last_name:element["last_name"]});
-          this.setState({  
-            email:element["email"]});
-          this.setState({  
-            phone:element["phone"]});
-          this.setState({  
-            role:element["role"]});
-  
-            console.log("entro");
-          }
-          else{
-            console.log("no");
-          }
-      });
-      console.log(this.state.first_name);
-    }
-  
-  
-    GuardarCambios(id){
-      fetch(`http://192.168.1.75:3001/api/journeys/User/${id}`,{
-          method: 'PUT',
+
+    AddmyFlight(e){
+        
+      fetch('http://192.168.1.75:3001/api/journeys/myFlights/', {
+          method: 'POST',
           body: JSON.stringify(this.state),
           headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
           }
       })
-      .then(res => res.json())
-      .then(data => {console.log(data)
-      //Toast.show('Changed Saved!');
-      this.setModalVisible(!this.state.modalVisible);
-      //window.Materialize.toast("Aeropuerto Actualizado",900,"light-blue darken-3")
-      });
+      .then(res=> res.json())
+      .then(data => {
+          //window.Materialize.toast("Vuelo Agregado",900,"light-blue darken-3")
+          this.setState({
+            vueloId:'',
+            my_Origen:'',
+            my_Destino:'',
+            my_Fecha_Llegada:'',
+            my_Hora_Llegada:'',
+            my_Fecha_Salida:'',
+            my_Hora_Salida:'',
+            seat:'',
+          });
+      })
+      .catch(err=> console.error(err));
+      e.preventDefault();
   }
+
+  
+  
+    getMyFlights(){
+      console.log(this.state.myId);
+      this.state.MisVuelos.forEach(element => {
+        console.log("foreach");
+        if(element["userId"]==this.state.myId){
+          this.setState({
+            vueloId:element["vueloId"]});
+          this.setState({
+            seat:element["seat"]});
+          this.setState({  
+            _id:element["_id"]});
+          
+          this.state.
+            console.log("entro");
+          }
+          else{
+            console.log("no");
+          }
+      });
+
+
+      console.log("fin");
+    }
   
   
     async getid(){
       console.log("get");
       try {
         var value = await AsyncStorage.getItem(ACCESS_TOKEN);
-          this.setState({_id:value});
+          this.setState({userId:value});
           // We have data!!
           console.log("hola");
           console.log("valor"+value);
-          console.log("val"+this.state._id);
+          console.log("val"+this.state.userId);
           console.log("get");
-          console.log(this.state._id);
-  
-      console.log(this.state.first_name);
-      this.updateUser();
+      this.fetchmyFlights();
+
         }
         catch (error) {
           console.log("error");
@@ -107,21 +121,60 @@ export default class ProfileScreen extends Component {
   
   
     componentDidMount(){
-      //this.fetchUsers();
+      this.getid();
   
   }
+
+
+  fetchmyFlights(){
+    fetch('http://192.168.1.75:3001/api/journeys/myFlights/')  
+  .then(res=>res.json())
+  .then(data=>{
+    console.log("fetch");
+    console.log(data);
+     data.forEach(element =>{
+      if(element["userId"]==this.state.userId){
+        this.setState({seat:element["seat"]});
+        var temp = {
+          _id:element["_id"],
+          my_Origen:element["my_Origen"],
+          my_Destino:element["my_Destino"],
+          my_Fecha_Salida:element["my_Fecha_Salida"],
+          my_Fecha_Llegada:element["my_Fecha_Llegada"],
+          my_Hora_Salida:element["my_Hora_Salida"],
+          my_Hora_Llegada:element["my_Hora_Llegada"],
+          seat:element["seat"]
+          };
+          console.log(temp);
+          this.state.Array.push(temp);
+        }
+        else{}
+     });
+      console.log(this.state.Array);
+
+            })
+            console.log("fin");
+            console.log(this.state.Array);
+    }
   
-  fetchUsers(){
-    fetch('http://192.168.1.75:3001/api/journeys/User/')
-        .then(res=>res.json())
-        .then(data=>{
-            this.setState({Users:data});
-            console.log(this.state.Users);
-            this.getid();
-            
-        });
+  
+    fetchFlights(id){
+      fetch(`http://192.168.1.75:3001/api/journeys/Flgts/${id}`)
+      .then(res=>res.json())
+      .then(data1=>{
+          this.setState({
+            Vuelo:data1
+              //Origen:data1.Origen, 
+              //Fecha_De_Salida:data1.Fecha_De_Salida,
+              //Hora_De_Salida:data1.Hora_De_Salida,
+              //Destino:data1.Destino,
+              //Fecha_De_Llegada:data1.Fecha_De_Llegada,
+              //Hora_De_Llegada:data1.Hora_De_Llegada,
+              //vueloId:data1._id,
+          });
+          console.log(this.state.Vuelo);
+          })
   }
-  
   
   
     setModalVisible(visible) {
@@ -129,16 +182,6 @@ export default class ProfileScreen extends Component {
     }
   
     render() {
-      const showAlert = () => {
-      Alert.alert(
-        'Are you sure you want to save the changes?',
-        'If it does, there will be no going back',
-        [
-          {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-          {text: 'OK', onPress: () => this.GuardarCambios(this.state._id)},
-        ],
-        { cancelable: false }
-      )}
      
       return (
         <Container  style={GlobalStyles.BgColor}>
@@ -156,10 +199,10 @@ export default class ProfileScreen extends Component {
             </Body>
           </Header>
           <ScrollView>
-            <View style={GlobalStyles.container}>
-            <Content padder>
-                <Accordion dataArray={dataArray} expanded={0}/>
-            </Content> 
+            <View style={{height:600, flex:0, backgroundColor:"black"}}>
+            
+                <Accordion  dataArray={dataArray} expanded={0}/>
+            
             </View>
           </ScrollView>
         </Container>

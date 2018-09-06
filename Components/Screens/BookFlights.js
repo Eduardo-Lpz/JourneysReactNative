@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
-import { Icon, Content, Container, Header, Button, Left, Right, Body, Text, Root, Card, CardItem, View} from 'native-base';
+import { ScrollView, AsyncStorage } from 'react-native';
+import { createStackNavigator } from 'react-navigation';
+import { Icon, Content, Container, Header, Button, Left, Right, Body, Text, Root, Card, CardItem, View, Item} from 'native-base';
 
 import GlobalStyles from '../../GlobalStyles';
-
 import ActionSheetFlights from './ActionSheetFlights';
 import DatePickers from './DatePickers'
+import List from '../Screens/FlightsList'
+
+const DESTINO_VUELO = 'myDestino';
 
 
-
-export default class FlightsScreen extends Component {
+class FlightsScreen extends Component {
 
     static navigationOptions = {
       drawerLabel: 'Reservar Vuelos',
@@ -53,10 +55,35 @@ export default class FlightsScreen extends Component {
           <View  style={{height:20, flex:0}}>
           </View>
 
-
-          
+        <Row style={{alignItems:'flex-start'}}>
+           <Item>
+            <TouchableOpacity
+            style={GlobalStyles.button2}
+                //onPress={this._storeVueloId(this.state.myDestino)}
+                onPress = {()=> this.props.navigation.navigate('Second')}
+            >
+                <Text style={GlobalStyles.buttonText}>Next</Text>
+            </TouchableOpacity>
+            </Item>
+            </Row>
           </ScrollView>
         </Container>
       );
     }
 }
+
+const RootStack = createStackNavigator(
+  {
+    Home: FlightsScreen,
+    Second: List,
+  },
+  {
+    initialRouteName: 'Home',
+    headerMode: 'none',
+  },
+);
+
+export default class App extends React.Component {
+  render() {
+    return <RootStack />;
+  }}

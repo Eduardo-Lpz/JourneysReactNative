@@ -1,20 +1,31 @@
 import { createDrawerNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 
 import HomeScreen from './Home'
 import Profile from './Profile'
 import BookFlights from './BookFlights'
-import Test from './Test2'
 import LogOut  from './LogOut'
 import MisVuelos from './MisVuelos'
+import Cards from './NewCard'
+import List from './FlightsList'
+import Registro from './Registro'
+import PayForm from './PayForm'
+import Confirmation from './Confirmation'
 
 
 export default createDrawerNavigator({
   Home: { screen: HomeScreen },
   Flights: { screen: BookFlights },
-  //Test: { screen: Test },
   Profile: { screen: Profile },
-  LogOut: { screen: LogOut },
+  Cards: {screen: Cards},
   MisVuelos: {screen: MisVuelos},
+  LogOut: { screen: LogOut },
+  //List: {screen: List},
+  //Registro: {screen: Registro},
+  //PayForm: {screen: PayForm},
+  //Confirmation: {screen:Confirmation},
+  //Principal:{screen: Principal},
+ 
 
 },
   {

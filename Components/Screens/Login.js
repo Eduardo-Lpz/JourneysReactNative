@@ -102,8 +102,8 @@ fetchUsers(){
           onChangeText={(text) => this.setState({password:text})}
         />     
                 <TouchableOpacity style={GlobalStyles.button}
-     onPress={this.LoginPress.bind(this)}
-     //onPress = {()=> this.props.navigation.navigate('Second')}
+     //onPress={this.LoginPress.bind(this)}
+     onPress = {()=> this.props.navigation.navigate('Second')}
       >
       <Text style={GlobalStyles.buttonText}>Log In</Text>
       </TouchableOpacity>

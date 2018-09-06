@@ -36,6 +36,15 @@ export default  StyleSheet.create({
       alignItems:'center'
 
   },
+  button2:{
+    width:90,
+    backgroundColor:'#3385ff',
+    borderRadius:25,
+    marginVertical:10,
+    paddingVertical:12,
+    alignItems:'center'
+
+},
   buttonText:{
       fontSize:16,
       fontWeight:'500',
