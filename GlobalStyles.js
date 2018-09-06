@@ -7,19 +7,34 @@ export default  StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
+
+  heather:{
+    justifyContent:'flex-start',
+    backgroundColor:'#0277bd',
+
+  },
+
+  modal:{
+    flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#D33232',
+  },
     //Global
     FirstScreen:{
         flex: 1, 
         alignItems: 'center', 
         justifyContent: 'center',
-        backgroundColor:'white'
+        backgroundColor:'#0277bd'
     },
     button:{
       width:300,
-      backgroundColor:'#0000ff',
+      backgroundColor:'#3385ff',
       borderRadius:25,
       marginVertical:10,
-      paddingVertical:12
+      paddingVertical:12,
+      alignItems:'center'
+
   },
   buttonText:{
       fontSize:16,
@@ -29,13 +44,20 @@ export default  StyleSheet.create({
   },
   inputBox:{
     width:300,
-    backgroundColor:'rgba(255,255,255,0.5)',
+    height:45,
+    backgroundColor:'rgb(230, 240, 255)',
     borderRadius: 25,
     paddingHorizontal:16,
     color:'#000000',
     marginVertical:10,
     fontSize:16
 },
+
+    error:{
+      textAlign: 'center',
+      color: '#ff0000',
+      fontSize: 15,
+    },
     text:{
       textAlign: 'center',
       color: '#ffffff',
@@ -56,6 +78,12 @@ export default  StyleSheet.create({
       backgroundColor: '#4D98EC',
     },
 
+    containerLogin: {
+        backgroundColor: '#0277bd',
+        flexGrow: 1,
+        justifyContent:'center',
+        alignItems: 'center'
+    },
 
     General:{//reemplaza container y BgColor
       flex: 1,
@@ -75,7 +103,8 @@ export default  StyleSheet.create({
     },
     FontHeaders:{
       fontFamily: 'Roboto', 
-      fontSize: 21
+      fontSize: 21,
+      color:'#ffffff',
     },
     BgColor:{
       backgroundColor: '#e0e0e0'//'#c5cae9'//"#bcddf2"
@@ -83,8 +112,29 @@ export default  StyleSheet.create({
     icon:{
       //color:'#013e89'
       color : '#01579b'//light-blue darken-4
-    }
+    },
+
+    loader: {
+      marginTop: 20
+    },
+
+    imgpequena:{
+      width: 50, height: 50,
+      },
+      imgmediana:{
+        borderWidth:0,
+        borderTopLeftRadius: 0,
+        borderColor:'#0277bd', 
+        borderRadius:0,
+        marginVertical:0,
+      width: 175, height: 175,
+      },
+      imggrande:{
+      width: 200, height: 200,
+      },
+
   });
+
 
   /*
       icon: {

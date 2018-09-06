@@ -10,19 +10,18 @@ import DatePickers from './DatePickers'
 
 
 export default class FlightsScreen extends Component {
-      constructor(props){
-        super(props);
-    }
     static navigationOptions = {
       drawerLabel: 'Reservar Vuelos',
       drawerIcon: () => (
         <Icon type="FontAwesome" name="plane" style={GlobalStyles.icon}/>
       )
     };
+
+
     render() {
       return (
         <Container  style={GlobalStyles.BgColor}>
-        <Header transparent>
+        <Header transparent style={GlobalStyles.heather}>
         <View style={{width:55}}>
           <Left style={{width:55, justifyContent:'center'}}>
             <Button transparent onPress={() => this.props.navigation.goBack()} style={{width:55}}>

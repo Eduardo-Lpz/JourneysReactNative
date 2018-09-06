@@ -8,8 +8,8 @@ import LogIn from '../Screens/Login';
 class LogInOrSignUp extends React.Component {
   render() {
     return (
-      <View style={GlobalStyles.FirstScreen}>
-        <Image source={require('../Images/LogoPhrase.png')}/>
+      <View style={GlobalStyles.containerLogin}>
+        <Image style={GlobalStyles.imgmediana}source={require('../Images/logosinfondo.png')}/>
 
         <TouchableOpacity style={GlobalStyles.button}
       onPress = {()=> this.props.navigation.navigate('Second')}

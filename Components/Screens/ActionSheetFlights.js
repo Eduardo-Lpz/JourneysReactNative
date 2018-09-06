@@ -6,26 +6,39 @@ var DESTRUCTIVE_INDEX = 3;
 var CANCEL_INDEX = 4;
 
 export default class ActionSheetIconExample extends Component {
-  constructor(props) {
+  constructor(props){
     super(props);
-    this.state = {
-      NombreParaMostrar:this.props.nombreMostrar,
-      Aeropuertos: []
+    this.state={
+        Origen:'',
+        Fecha_De_Salida:'',
+        Hora_De_Salida:'',
+        Destino:'',
+        Fecha_De_Llegada:'',
+        Hora_De_Llegada:'',
+        Capacidad:'',
+        Precio:'',
+        Vuelos:[],
+        offset: 0,
+        searchTerm:''
     };
-  }
-  componentDidMount(){
-    return fetch('http://172.20.19.17:3001/api/journeys/Apts/')
-      .then((response) => response.json())
-      .then(data=>{
-       data.forEach((element) => {
-         this.state.Aeropuertos.push("("+element.Ap_Code+")" + " "+element.Ap_City);
-       });
-        })
-      .catch((error) =>{
-        console.error(error);
-      });
-  }
 
+}
+
+  
+  componentDidMount(){
+    this.fetchFlights();
+}
+
+  fetchFlights(){
+    //fetch('http://192.168.1.75:3001/api/journeys/Flgts/') 
+    fetch('http://192.168.1.75:3001/api/journeys/User/') 
+        .then(res=>res.json())
+        .then(data=>{
+            this.setState({Vuelos:data});
+            console.log(data)
+            console.log(this.state.Vuelos)
+        });
+}
   render() {
     return (
       <View >

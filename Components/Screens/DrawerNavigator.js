@@ -1,17 +1,19 @@
 import { createDrawerNavigator } from 'react-navigation';
 
 import HomeScreen from './Home'
-import Profile from './Profile'
+import Profile from './profile'
 import BookFlights from './BookFlights'
 import Test from './Test2'
 import LogOut  from './LogOut'
+import Cards from './NewCard'
 
 export default createDrawerNavigator({
   Home: { screen: HomeScreen },
   Flights: { screen: BookFlights },
   //Test: { screen: Test },
   Profile: { screen: Profile },
-  LogOut: { screen: LogOut },
+  Cards: {screen: Cards},
+  LogOut: { screen: LogOut }
 },
   {
     drawerPosition: 'left',

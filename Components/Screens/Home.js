@@ -1,9 +1,11 @@
 import React, { Component }from 'react';
 import { Image, ScrollView } from 'react-native';
-import { View, Icon, Container, Header, Button, Left, Right, Body, Text, DeckSwiper, Card, CardItem } from 'native-base';
+import { View, Icon, Container, Header, Button, Left, Right, Body, Text, DeckSwiper, Card, CardItem,AsyncStorage,
+  AlertIOS, ActivityIndicatorIOS, } from 'native-base';
 
 import GlobalStyles from '../../GlobalStyles';
 
+const ACCESS_TOKEN = 'access_token';
 
 const cards = [
   {
@@ -22,6 +24,16 @@ const cards = [
 
 
 export default class HomeScreen extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggenIn: "",
+      showProgress: false,
+      accessToken: "",
+      
+    };
+  }
+
     static navigationOptions = {
       drawerLabel: 'Home',
       drawerIcon: () => (
@@ -32,7 +44,7 @@ export default class HomeScreen extends Component {
       return (
         <Container  style={GlobalStyles.BgColor}>
 
-          <Header transparent style={{justifyContent:'flex-start'}}>
+          <Header transparent style={GlobalStyles.heather}>
 
           <View style={{width:55}}>
             <Left style={{width:55, justifyContent:'center'}}>
