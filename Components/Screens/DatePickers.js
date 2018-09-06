@@ -17,9 +17,9 @@ export default class DatePickerExample extends Component {
 
           <Button style={{width:180, height:60, justifyContent:'center'}}>
           <DatePicker style={{width:200, height:150}} itemStyle={{height: 150}}
-            defaultDate={new Date(2018, 4, 4)}
-            minimumDate={new Date(2018, 1, 1)}
-            maximumDate={new Date(2018, 12, 31)}
+            defaultDate={new Date(2018, 8, 4)}
+            minimumDate={new Date(2018, 8, 3)}
+            maximumDate={new Date(2019, 11, 31)}
             locale={"en"}
             timeZoneOffsetInMinutes={undefined}
             modalTransparent={false}
