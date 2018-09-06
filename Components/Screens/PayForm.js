@@ -8,7 +8,7 @@ import Confirmation from '../Screens/Confirmation';
 
 const ACCESS_TOKEN = 'myId';
 
-class PayForm extends Component {
+export default class PayForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -116,19 +116,3 @@ class PayForm extends Component {
     );
   }
 }
-
-const RootStack = createStackNavigator(
-  {
-    Home: PayForm ,
-    Second: Confirmation,
-  },
-  {
-    initialRouteName: 'Home',
-    headerMode: 'none',
-  },
-);
-
-export default class App extends React.Component {
-  render() {
-    return <RootStack />;
-  }}

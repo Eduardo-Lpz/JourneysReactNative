@@ -10,7 +10,7 @@ const ACCESS_TOKEN = 'myId';
 const {width} = Dimensions.get('window');
 
 const frameWidth = width;
-class Confirmation extends Component {
+export default class Confirmation extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -70,18 +70,3 @@ class Confirmation extends Component {
 }
 
 
-const RootStack = createStackNavigator(
-  {
-    Home: Confirmation,
-    Second: DrawerNavigator,
-  },
-  {
-    initialRouteName: 'Home',
-    headerMode: 'none',
-  },
-);
-
-export default class App extends React.Component {
-  render() {
-    return <RootStack />;
-  }}

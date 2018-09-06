@@ -10,7 +10,7 @@ const ACCESS_TOKEN = 'myId';
 const DESTINO_VUELO = 'myDestino';
 
 
- class Registro extends Component {
+ export default class Registro extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -82,19 +82,5 @@ const DESTINO_VUELO = 'myDestino';
 }
 
 
-const RootStack = createStackNavigator(
-    {
-      Home: Registro ,
-      Second: PayForm,
-    },
-    {
-      initialRouteName: 'Home',
-      headerMode: 'none',
-    },
-  );
-  
-  export default class App extends React.Component {
-    render() {
-      return <RootStack />;
-    }}
+
 

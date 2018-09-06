@@ -37,7 +37,7 @@ componentDidMount(){
 }
 
 fetchUsers(){
-  fetch('http://192.168.1.75:3001/api/journeys/User/')
+  fetch('http://172.20.19.72:3001/api/journeys/User/')
       .then(res=>res.json())
       .then(data=>{
           this.setState({Users:data});
@@ -102,8 +102,8 @@ fetchUsers(){
           onChangeText={(text) => this.setState({password:text})}
         />     
                 <TouchableOpacity style={GlobalStyles.button}
-     //onPress={this.LoginPress.bind(this)}
-     onPress = {()=> this.props.navigation.navigate('Second')}
+     onPress={this.LoginPress.bind(this)}
+     //onPress = {()=> this.props.navigation.navigate('Second')}
       >
       <Text style={GlobalStyles.buttonText}>Log In</Text>
       </TouchableOpacity>

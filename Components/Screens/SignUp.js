@@ -36,7 +36,7 @@ class SignUp extends React.Component {
 }
 
   fetchUsers(){
-    fetch('http://192.168.1.75:3001/api/journeys/User/')
+    fetch('http://172.20.19.72:3001/api/journeys/User/')
         .then(res=>res.json())
         .then(data=>{
             this.setState({Users:data});
@@ -58,7 +58,7 @@ class SignUp extends React.Component {
 
     AddUser(e){
         
-      fetch('http://192.168.1.75:3001/api/journeys/User/',{
+      fetch('http://172.20.19.72:3001/api/journeys/User/',{
           method: 'POST',
           body: JSON.stringify(this.state),
           headers: {

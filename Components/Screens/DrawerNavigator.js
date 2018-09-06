@@ -18,7 +18,7 @@ export default createDrawerNavigator({
   Flights: { screen: BookFlights },
   Profile: { screen: Profile },
   Cards: {screen: Cards},
-  MisVuelos: {screen: MisVuelos},
+  Historial: {screen: List},
   LogOut: { screen: LogOut },
   //List: {screen: List},
   //Registro: {screen: Registro},

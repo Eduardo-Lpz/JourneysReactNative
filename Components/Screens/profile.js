@@ -62,7 +62,7 @@ export default class ProfileScreen extends Component {
 
 
   GuardarCambios(id){
-    fetch(`http://192.168.1.75:3001/api/journeys/User/${id}`,{
+    fetch(`http://172.20.19.72:3001/api/journeys/User/${id}`,{
         method: 'PUT',
         body: JSON.stringify(this.state),
         headers: {
@@ -125,7 +125,7 @@ export default class ProfileScreen extends Component {
 }
 
 fetchUsers(){
-  fetch('http://192.168.1.75:3001/api/journeys/User/')
+  fetch('http://172.20.19.72:3001/api/journeys/User/')
       .then(res=>res.json())
       .then(data=>{
           this.setState({Users:data});

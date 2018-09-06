@@ -32,9 +32,9 @@ class FlightsList extends Component {
 
 
   static navigationOptions = {
-    drawerLabel: 'List',
+    drawerLabel: 'My Flights',
     drawerIcon: () => (
-      <Icon type="FontAwesome" name="user" style={GlobalStyles.icon}/>
+      <Icon type="FontAwesome" name="plane" style={GlobalStyles.icon}/>
     )
   };
 
@@ -61,7 +61,7 @@ class FlightsList extends Component {
   }
 
   fetchFlights(){
-    fetch('http://192.168.1.75:3001/api/journeys/Flgts/')  
+    fetch('http://172.20.19.72:3001/api/journeys/Flgts/')  
         .then(res=>res.json())
         .then(data=>{
             console.log("fetch");

@@ -52,7 +52,7 @@ async getid(){
 
 fetchCard(){
     //fetch('http://172.20.19.55:3001/api/journeys/Cards/')
-    fetch('http://192.168.1.75:3001/api/journeys/Cards/') 
+    fetch('http://172.20.19.72:3001/api/journeys/Cards/') 
         .then(res=>res.json())
         .then(data=>{
             this.setState({Cards:data});
@@ -70,7 +70,7 @@ fetchCard(){
 
   AddCard(e){       
     //fetch('http://172.20.19.55:3001/api/journeys/Cards/',{
-    fetch('http://192.168.1.75:3001/api/journeys/Cards/',{
+    fetch('http://172.20.19.72:3001/api/journeys/Cards/',{
         method: 'POST',
         body: JSON.stringify(this.state),
         headers: {
